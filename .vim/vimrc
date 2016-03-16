@@ -1,0 +1,70 @@
+" Enable syntax hilighting
+syntax enable
+
+" Highlight text during searches
+set hlsearch
+
+" <Ctrl-l> redraws the screen and removes any search hilighting.
+nnoremap <silent> <C-l> :nohl<CR><C-l>
+
+" <Ctrl-l> redraws the screen and removes any search hilighting.
+" nnoremap <silent> <F5> :source $MYVIMRC<CR>:echo 'Reloaded vimrc'<CR>
+
+" Show line numbers
+set number
+
+" Space indentation
+set et
+
+" Auto indentation
+set ai
+
+" CtrlP
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+
+" Enable pathogen
+call pathogen#infect()
+
+" Enable coffeescript-vim
+filetype plugin indent on
+
+" Statusline fun
+set noruler
+set laststatus=2
+" set statusline=%f\ -\ FileType:\ %y
+
+" Colorscheme
+colorscheme evening
+set guifont=Source\ Code\ Pro:h12
+
+" air-line
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" airline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
