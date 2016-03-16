@@ -7,6 +7,9 @@ set hlsearch
 " <Ctrl-l> redraws the screen and removes any search hilighting.
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
+" <Ctrl-n> toggles NERDTree
+map <C-n> :NERDTreeToggle<CR>
+
 " <Ctrl-l> redraws the screen and removes any search hilighting.
 " nnoremap <silent> <F5> :source $MYVIMRC<CR>:echo 'Reloaded vimrc'<CR>
 
@@ -23,6 +26,9 @@ set ai
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
+
+" Force markdown filetype for *.md
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " Enable pathogen
 call pathogen#infect()
