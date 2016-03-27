@@ -5,7 +5,7 @@ syntax enable
 set hlsearch
 
 " <Ctrl-l> redraws the screen and removes any search hilighting.
-nnoremap <silent> <C-l> :nohl<CR><C-l>
+nnoremap <silent> <esc> :nohl<CR><esc>
 
 " <Ctrl-n> toggles NERDTree
 map <C-n> :NERDTreeToggle<CR>
@@ -21,9 +21,12 @@ nnoremap <C-l> <C-w><C-l>
 
 " Show line numbers
 set number
+set relativenumber
 
 " Space indentation
 set et
+set tabstop=2
+set shiftwidth=2
 
 " Auto indentation
 set ai
