@@ -51,7 +51,7 @@ set laststatus=2
 " set statusline=%f\ -\ FileType:\ %y
 
 " GUI Stuff (Colorscheme)
-colorscheme evening
+colorscheme Kafka
 set guifont=Source\ Code\ Pro\ for\ Powerline\ 12
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar

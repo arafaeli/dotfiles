@@ -168,7 +168,7 @@ bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 1- unmute"
 bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
 
 # Background image
-exec --no-startup-id feh --bg-scale ~/Pictures/wow.jpg
+exec --no-startup-id feh --bg-scale ~/Pictures/wow.jpg --bg-scale ~/Pictures/wow.jpg
 
 # Compton
 exec --no-startup-id compton -cCGb --backend glx --vsync opengl
