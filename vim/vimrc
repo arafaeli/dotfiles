@@ -50,9 +50,11 @@ set noruler
 set laststatus=2
 " set statusline=%f\ -\ FileType:\ %y
 
-" Colorscheme
+" GUI Stuff (Colorscheme)
 colorscheme evening
-set guifont=Source\ Code\ Pro:h12
+set guifont=Source\ Code\ Pro\ for\ Powerline\ 12
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
 
 " air-line
 let g:airline_powerline_fonts = 1
