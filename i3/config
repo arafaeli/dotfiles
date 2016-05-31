@@ -180,6 +180,9 @@ exec --no-startup-id compton -cCGb --backend glx --vsync opengl
 # Pasystray
 exec --no-startup-id pasystray
 
+# Wifi Tray
+exec --no-startup-id nm-applet
+
 # Colors
 set $bg-color 	         #2f343f
 set $inactive-bg-color   #2f343f
