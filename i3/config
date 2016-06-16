@@ -172,7 +172,7 @@ bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
 exec --no-startup-id xrandr --auto --output eDP1 --right-of HDMI1
 
 # Background image
-exec --no-startup-id feh --bg-scale ~/Pictures/god.jpg --bg-scale ~/Pictures/god.jpg
+exec --no-startup-id feh --bg-scale ~/Pictures/nyan.jpg --bg-scale ~/Pictures/nyan.jpg
 
 # Compton
 exec --no-startup-id compton -cCGb --backend glx --vsync opengl
@@ -198,7 +198,18 @@ client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-col
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
 
 # DMenu alternative
-bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 800 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
+bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 50 -padding 100 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
 
 # Lock
 bindsym $mod+Shift+x exec i3lock --color 475263
+
+##### SESSION ######
+# Chrome
+exec --no-startup-id i3-msg 'workspace 10; exec google-chrome --profile-directory="Profile 1"; move workspace to right'
+exec --no-startup-id i3-msg 'workspace 9; exec google-chrome --profile-directory="Default"; move workspace to right'
+
+# Slack
+exec --no-startup-id i3-msg 'workspace 8; exec slack; move workspace to right'
+
+# GVim
+exec --no-startup-id i3-msg 'workspace 1; exec gvim; move workspace to left'
