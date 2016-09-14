@@ -153,7 +153,14 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+  status_command i3status
+  #i3bar_command i3bar -t -c ~/.i3/i3status
+  i3bar_command i3bar -t
+  #font pango:FontAwesome 12
+  separator_symbol " ::: "
+  colors {
+    background #13255555
+  }
 }
 
 # Change language
@@ -164,19 +171,18 @@ exec --no-startup-id setxkbmap -layout us,il -option 'grp:alt_shift_toggle'
 bindsym $mod+x move workspace to output right
 
 # Audio controls
-bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 1+ unmute"
-bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 1- unmute"
-bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
+bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume 0 +5%"
+bindsym XF86AudioLowerVolume exec "pactl set-sink-volume 0 -5%"
+bindsym XF86AudioMute exec "pactl set-sink-mute 0 toggle"
 
 # Office display setup
 exec --no-startup-id xrandr --auto --output eDP1 --right-of HDMI1
 
 # Background image
-exec --no-startup-id feh --bg-scale ~/Pictures/nyan.jpg --bg-scale ~/Pictures/nyan.jpg
+exec --no-startup-id feh --bg-scale ~/Pictures/Poly-Lakeside.jpg --bg-scale ~/Pictures/Poly-Lakeside.jpg
 
 # Compton
-exec --no-startup-id compton -cCGb --backend glx --vsync opengl
-
+exec --no-startup-id compton -cCGb --backend glx --vsync opengl --opacity-rule '80:!focused'
 # Pasystray
 exec --no-startup-id pasystray
 
@@ -192,7 +198,7 @@ set $urgent-bg-color     #E53935
 
 # window colors
 #                       border              background         text                 indicator
-client.focused          $bg-color           $bg-color          $text-color          #00ff00
+client.focused          #ffffff           $bg-color          $text-color          #0ff00
 client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
 client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
@@ -202,6 +208,11 @@ bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 50 -padding 100 -opacit
 
 # Lock
 bindsym $mod+Shift+x exec i3lock --color 475263
+
+# GAPS
+for_window [class="^.*"] border pixel 0
+gaps inner 50
+gaps outer 5
 
 ##### SESSION ######
 # Chrome
