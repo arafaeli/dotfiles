@@ -19,6 +19,9 @@ nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
 nnoremap <C-l> <C-w><C-l>
 
+" Save
+map <C-s> :w<CR>
+
 " <Ctrl-l> redraws the screen and removes any search hilighting.
 " nnoremap <silent> <F5> :source $MYVIMRC<CR>:echo 'Reloaded vimrc'<CR>
 
