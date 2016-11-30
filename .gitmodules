@@ -19,3 +19,6 @@
 [submodule "vim/bundle/Colorizer"]
 	path = vim/bundle/Colorizer
 	url = git@github.com:chrisbra/Colorizer.git
+[submodule "vim/bundle/vim-flake8"]
+	path = vim/bundle/vim-flake8
+	url = git@github.com:nvie/vim-flake8.git
