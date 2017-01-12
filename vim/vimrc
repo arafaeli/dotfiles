@@ -101,3 +101,15 @@ endif
 " let g:airline_symbols.branch = ''
 " let g:airline_symbols.readonly = ''
 " let g:airline_symbols.linenr = ''
+
+" 80-column 
+" set colorcolumn=80
+set colorcolumn=120
+
+" PEP8
+set textwidth=119
+autocmd BufWritePost *.py call Flake8()
+
+" ENV
+let $PATH .= ';/home/asaf/.pyenv/shims'
+
