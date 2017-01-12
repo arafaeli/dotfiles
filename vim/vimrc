@@ -7,6 +7,10 @@ syntax enable
 " Python syntax
 let python_highlight_all = 1
 
+" Jedi
+" let g:jedi#use_splits_not_buffers = "left"
+set splitbelow
+
 " Dockerfile recognition
 autocmd BufNewFile,BufRead *.Dockerfile setf dockerfile
 autocmd BufNewFile,BufRead * ColorHighlight
