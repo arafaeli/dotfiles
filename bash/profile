@@ -27,7 +27,7 @@ alias profile-edit="vim $THIS_FILE"
 
 b() {
   if [ -z $1 ]; then
-    echo 'usage: b BOOKMARK_NAME'
+    cat $BOOKMARKS_FILE
     return
   fi
 
