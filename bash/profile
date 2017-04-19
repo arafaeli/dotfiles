@@ -46,7 +46,7 @@ badd() {
     return
   fi
 
-  # echo $1 $(pwd) >> $BOOKMARKS_FILE
+  echo $1 $(pwd) >> $BOOKMARKS_FILE
   echo "Added $1 ($(pwd)) to bookmarks"
 }
 
