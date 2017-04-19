@@ -1,0 +1,71 @@
+#!/bin/bash
+
+THIS_FILE=${BASH_SOURCE[0]}
+THIS_DIR=$(dirname $THIS_FILE)
+BOOKMARKS_FILE=$THIS_DIR/bookmarks
+
+alias dual_monitor='xrandr --auto --output eDP1 --right-of DP1-2'
+
+pip-install() {
+  package=$1
+  req_file=$2
+
+  if [[ -z $req_file ]]
+  then
+    req_file='./requirements.txt'
+  fi
+
+  pip install $package && pip freeze | grep -i $package >> $req_file
+}
+
+profile-reload() {
+  echo 'Reloading best profile ever'
+  source $THIS_FILE
+}
+
+alias profile-edit="vim $THIS_FILE"
+
+b() {
+  if [ -z $1 ]; then
+    echo 'usage: b BOOKMARK_NAME'
+    return
+  fi
+
+  dest=$(cat $BOOKMARKS_FILE | grep "^${1}\s" | head -1 | awk '{print $2}')
+
+  if [ ! -z $dest ]; then
+    cd $(eval "echo $dest")
+  else
+    echo "${1} bookmark not found"
+  fi
+}
+
+badd() {
+  if [ -z $1 ]; then
+    echo 'usage: badd BOOKMARK_NAME'
+    return
+  fi
+
+  # echo $1 $(pwd) >> $BOOKMARKS_FILE
+  echo "Added $1 ($(pwd)) to bookmarks"
+}
+
+_b_complete() {
+  local cur_word prev_word type_list
+
+  cur_word="${COMP_WORDS[COMP_CWORD]}"
+  prev_word="${COMP_WORDS[COMP_CWORD-1]}"
+
+  bookmark_list=$(cat $BOOKMARKS_FILE | awk '{print $1}')
+
+  if (( $COMP_CWORD == 1 )); then
+    COMPREPLY=( $(compgen -W "${bookmark_list}" -- ${cur_word}) )
+  else
+    COMPREPLY=()
+  fi
+
+  return 0
+}
+
+# register
+complete -F _b_complete b
