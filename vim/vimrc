@@ -13,6 +13,7 @@ set splitbelow
 
 " Dockerfile recognition
 autocmd BufNewFile,BufRead *.Dockerfile setf dockerfile
+autocmd BufNewFile,BufRead *.dockerfile setf dockerfile
 autocmd BufNewFile,BufRead * ColorHighlight
 
 " Highlight text during searches

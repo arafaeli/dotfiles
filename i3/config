@@ -231,3 +231,10 @@ exec --no-startup-id i3-msg 'workspace 8; exec slack; move workspace to right'
 
 # GVim
 exec --no-startup-id i3-msg 'workspace 1; exec gvim; move workspace to left'
+
+##### Hotkeys #####
+# CMUS
+bindsym XF86AudioPlay exec cmus-remote -u
+bindsym XF86AudioPause exec cmus-remote -u
+bindsym XF86AudioNext exec cmus-remote -n
+bindsym XF86AudioPrev exec cmus-remote -r
