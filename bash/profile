@@ -69,3 +69,7 @@ _b_complete() {
 
 # register
 complete -F _b_complete b
+
+# Disable ctrl-s/ctrl-q (XON/XOFF)
+stty -ixon
+
