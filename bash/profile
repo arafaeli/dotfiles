@@ -10,12 +10,17 @@ pip-install() {
   package=$1
   req_file=$2
 
-  if [[ -z $req_file ]]
-  then
+  if [[ -z "$package" ]]; then
+    echo "oi select a foken package m8"
+    return 1
+  fi
+
+  if [[ -z "$req_file" ]]; then
     req_file='./requirements.txt'
   fi
 
   pip install $package && pip freeze | grep -i $package >> $req_file
+  echo "Added $package to $req_file"
 }
 
 profile-reload() {
@@ -72,4 +77,9 @@ complete -F _b_complete b
 
 # Disable ctrl-s/ctrl-q (XON/XOFF)
 stty -ixon
+
+# Copypasta
+copypasta() {
+  cat ~/.copypasta | grep $1 | awk '{print $2}'
+}
 

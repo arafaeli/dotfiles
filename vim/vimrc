@@ -1,5 +1,45 @@
+"""""""""""""""""""""""""""""""""""""""""""
+"
+" ███████  ███████  ███████  ███████
+" ██    █  █        █           █
+" ██████   ██████   ██████      █
+" ██    █  █              █     █
+" ███████  ███████  ██████      █
+"
+" 
+" Maintainer: Asaf Rafaeli
+" 
+" Contents:
+"   » General
+"   » Interface
+"   » Navigation
+"   » Editing
+"   » Status line
+"
+"""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""
+" » General
+"""""""""""""""""""""""""""""""""""""""""""
+
 " Enable pathogen
 call pathogen#infect()
+
+" Enable filetype plugins
+filetype plugin indent on
+
+" Auto-read file when changed
+set autoread
+
+" File type recognition
+autocmd BufNewFile,BufRead *.Dockerfile setf dockerfile
+autocmd BufNewFile,BufRead *.dockerfile setf dockerfile
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+
+"""""""""""""""""""""""""""""""""""""""""""
+" » Interface
+"""""""""""""""""""""""""""""""""""""""""""
 
 " Enable syntax hilighting
 syntax enable
@@ -7,23 +47,25 @@ syntax enable
 " Python syntax
 let python_highlight_all = 1
 
-" Jedi
-" let g:jedi#use_splits_not_buffers = "left"
+" Jedi python autocompletion
 set splitbelow
 
-" Dockerfile recognition
-autocmd BufNewFile,BufRead *.Dockerfile setf dockerfile
-autocmd BufNewFile,BufRead *.dockerfile setf dockerfile
+" Highlight colors in code
 autocmd BufNewFile,BufRead * ColorHighlight
 
 " Highlight text during searches
 set hlsearch
 
-" <Ctrl-l> redraws the screen and removes any search hilighting.
-nnoremap <silent> <esc> :nohl<CR><esc>
+" Show line numbers
+set number
+set relativenumber
 
-" <Ctrl-n> toggles NERDTree
-map <C-n> :NERDTreeToggle<CR>
+" Column line
+set colorcolumn=120
+
+"""""""""""""""""""""""""""""""""""""""""""
+" » Navigation
+"""""""""""""""""""""""""""""""""""""""""""
 
 " Sane split navigation
 nnoremap <C-h> <C-w><C-h>
@@ -31,42 +73,47 @@ nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
 nnoremap <C-l> <C-w><C-l>
 
-" Save
-map <C-s> :w<CR>
+" NERDTree
+map <C-n> :NERDTreeToggle<CR>
 
-" Quit
-map <C-q> :q<CR>
-
-" <Ctrl-l> redraws the screen and removes any search hilighting.
-" nnoremap <silent> <F5> :source $MYVIMRC<CR>:echo 'Reloaded vimrc'<CR>
-
-" Show line numbers
-set number
-set relativenumber
-
-" Space indentation
-set et
-set tabstop=2
-set shiftwidth=2
-
-" Auto indentation
-set ai
-
-" CtrlP
+" CtrlP fuzzy file finder
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 
-" Force markdown filetype for *.md
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
-" Enable coffeescript-vim
-filetype plugin indent on
+"""""""""""""""""""""""""""""""""""""""""""
+" » Editing
+"""""""""""""""""""""""""""""""""""""""""""
 
-" Statusline fun
+" Save and quit remappings
+map <C-s> :w<CR>
+map <C-q> :q<CR>
+
+" Indentation (tab=2 spaces, autoindent)
+set et
+set tabstop=2
+set shiftwidth=2
+set ai
+
+" PEP8
+set textwidth=119
+let $PATH .= ';/home/asaf/.pyenv/shims'
+autocmd BufWritePost *.py call Flake8()
+
+
+"""""""""""""""""""""""""""""""""""""""""""
+" » Status line
+"""""""""""""""""""""""""""""""""""""""""""
+
+" Statusline ON
 set noruler
 set laststatus=2
-" set statusline=%f\ -\ FileType:\ %y
+
+
+"""""""""""""""""""""""""""""""""""""""""""
+" » Misc
+"""""""""""""""""""""""""""""""""""""""""""
 
 " GUI Stuff (Colorscheme)
 colorscheme Kafka
@@ -83,41 +130,3 @@ let g:Powerline_symbols = 'fancy'
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
-
-" unicode symbols
-" let g:airline_left_sep = '»'
-" let g:airline_left_sep = '▶'
-" let g:airline_right_sep = '«'
-" let g:airline_right_sep = '◀'
-" let g:airline_symbols.linenr = '␊'
-" let g:airline_symbols.linenr = '␤'
-" let g:airline_symbols.linenr = '¶'
-" let g:airline_symbols.branch = '⎇'
-" let g:airline_symbols.paste = 'ρ'
-" let g:airline_symbols.paste = 'Þ'
-" let g:airline_symbols.paste = '∥'
-" let g:airline_symbols.whitespace = 'Ξ'
-
-" let g:airline_left_sep = ''
-" let g:airline_right_sep = ''
-
-" airline symbols
-" let g:airline_left_sep = ''
-" let g:airline_left_alt_sep = ''
-" let g:airline_right_sep = ''
-" let g:airline_right_alt_sep = ''
-" let g:airline_symbols.branch = ''
-" let g:airline_symbols.readonly = ''
-" let g:airline_symbols.linenr = ''
-
-" 80-column 
-" set colorcolumn=80
-set colorcolumn=120
-
-" PEP8
-set textwidth=119
-autocmd BufWritePost *.py call Flake8()
-
-" ENV
-let $PATH .= ';/home/asaf/.pyenv/shims'
-
