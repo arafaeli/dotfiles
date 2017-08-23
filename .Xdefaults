@@ -58,3 +58,6 @@ URxvt.keysym.C-S-Down: font-size:decglobal
 URxvt.keysym.C-equal:  font-size:reset
 URxvt.keysym.C-slash:  font-size:show
 
+! Disable Ctrl+Shift defaults
+URxvt.iso14755: false
+URxvt.iso14755_52: false

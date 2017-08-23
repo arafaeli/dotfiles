@@ -49,3 +49,6 @@
 [submodule "vim/bundle/angr.vim"]
 	path = vim/bundle/angr.vim
 	url = git@github.com:zacanger/angr.vim.git
+[submodule "vim/bundle/vim-go"]
+	path = vim/bundle/vim-go
+	url = git@github.com:fatih/vim-go.git
