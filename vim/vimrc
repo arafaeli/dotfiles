@@ -132,7 +132,12 @@ set laststatus=2
 """""""""""""""""""""""""""""""""""""""""""
 
 " GUI Stuff (Colorscheme)
-colorscheme Kafka
+" colorscheme Kafka
+colors angr
+
+" Remove annoying tilde ~ on empty lines
+hi NonText guifg=bg
+
 " set guifont=Source\ Code\ Pro\ for\ Powerline\ 12
 set guifont=Monaco\ 14
 set guioptions-=m  "remove menu bar
@@ -140,9 +145,5 @@ set guioptions-=T  "remove toolbar
 
 " air-line
 let g:airline_powerline_fonts = 1
+let g:airline_theme='angr'
 
-let g:Powerline_symbols = 'fancy'
-
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
