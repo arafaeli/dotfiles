@@ -32,9 +32,12 @@ filetype plugin indent on
 set autoread
 
 " File type recognition
-autocmd BufNewFile,BufRead *.Dockerfile setf dockerfile
-autocmd BufNewFile,BufRead *.dockerfile setf dockerfile
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+augroup vimrc_filetypes
+  autocmd!
+  autocmd BufNewFile,BufRead *.Dockerfile setf dockerfile
+  autocmd BufNewFile,BufRead *.dockerfile setf dockerfile
+  autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+augroup END
 
 " Update shit 250ms
 set updatetime=250
@@ -59,7 +62,10 @@ let python_highlight_all = 1
 set splitbelow
 
 " Highlight colors in code
-autocmd BufNewFile,BufRead * ColorHighlight
+augroup vimrc_hlcolor
+  autocmd!
+  autocmd BufNewFile,BufRead * ColorHighlight
+augroup END
 
 " Highlight text during searches
 set hlsearch
@@ -73,19 +79,25 @@ set colorcolumn=120
 
 " Line number and gutter colors
 let g:gitgutter_override_sign_column_highlight = 0
-highlight LineNr ctermbg=grey guibg=grey
-highlight SignColumn ctermbg=grey guibg=grey
+" highlight LineNr ctermbg=grey guibg=grey
+" highlight SignColumn ctermbg=grey guibg=grey
 
 " Highlight current line
 set cursorline
 
 " Tab navigation like Firefox.
-nnoremap <C-S-tab> :tabprevious<CR>
-nnoremap <C-tab>   :tabnext<CR>
-nnoremap <C-t>     :tabnew<CR>
-inoremap <C-S-tab> <Esc>:tabprevious<CR>i
-inoremap <C-tab>   <Esc>:tabnext<CR>i
-inoremap <C-t>     <Esc>:tabnew<CR>
+"nnoremap <C-S-h> :tabprevious<CR>
+"nnoremap <C-S-l>   :tabnext<CR>
+"nnoremap <C-t>     :tabnew<CR>
+"inoremap <C-S-h> <Esc>:tabprevious<CR>i
+"inoremap <C-S-l>   <Esc>:tabnext<CR>i
+"inoremap <C-t>     <Esc>:tabnew<CR>
+nnoremap <leader>th :tabprevious<CR>
+nnoremap <leader>tl   :tabnext<CR>
+nnoremap <leader>tt     :tabnew<CR>
+inoremap <leader>th <Esc>:tabprevious<CR>i
+inoremap <leader>tl   <Esc>:tabnext<CR>i
+inoremap <leader>tt     <Esc>:tabnew<CR>
 
 """""""""""""""""""""""""""""""""""""""""""
 " » Navigation
@@ -123,7 +135,11 @@ set ai
 " PEP8
 set textwidth=119
 let $PATH .= ';/home/asaf/.pyenv/shims'
-autocmd BufWritePost *.py call Flake8()
+
+augroup vimrc_flake8
+  autocmd!
+  autocmd BufWritePost *.py call Flake8()
+augroup END
 
 
 """""""""""""""""""""""""""""""""""""""""""

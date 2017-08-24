@@ -83,3 +83,13 @@ copypasta() {
   cat ~/.copypasta | grep $1 | awk '{print $2}'
 }
 
+scratch() {
+  if [[ -z "$1" ]]; then
+    filename=$(date +%Y-%m-%d)
+  else
+    filename=$1
+  fi
+
+  vim ~/.scratch/$filename
+}
+
