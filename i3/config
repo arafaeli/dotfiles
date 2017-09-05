@@ -186,7 +186,10 @@ exec --no-startup-id xrandr --auto --output eDP1 --right-of DP1-2
 exec --no-startup-id feh --bg-scale ~/Pictures/B31Uwkm.png --bg-scale ~/Pictures/B31Uwkm.png
 
 # Compton
-exec --no-startup-id compton -cCGb --backend glx --vsync opengl --opacity-rule '80:!focused'
+# exec --no-startup-id compton -cCGb --backend glx --vsync opengl --opacity-rule '80:!focused'
+# exec --no-startup-id compton -cCGb --backend glx --vsync opengl --opacity-rule '80:!focused'
+exec --no-startup-id compton -cCGb --backend glx --vsync opengl --opacity-rule '80:!focused' --config ~/.compton.conf
+
 # Pasystray
 exec --no-startup-id pasystray
 
