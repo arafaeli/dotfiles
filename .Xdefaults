@@ -14,19 +14,32 @@ URxvt*scrollTtyKeypress: true
 urxvt*scrollBar: false
 
 ! font
-!URxvt.font:              xft:Monaco\ for\ Powerline:regular:size=16
-!URxvt.imFont:            xft:Monaco\ for\ Powerline:regular:size=16
-!URxvt.boldFont:          xft:Monaco\ for\ Powerline:bold:size=16
-!URxvt.italicFont:        xft:Monaco\ for\ Powerline:italic:size=16
-!URxvt.boldItalicFont:    xft:Monaco\ for\ Powerline:bold:italic:size=16
+*font:              xft:Monaco for Powerline:antialias=true:hinting=true:size=12
 
-URxvt.font:              xft:Inconsolata\ for\ Powerline:regular:size=16
-URxvt.imFont:            xft:Inconsolata\ for\ Powerline:regular:size=16
-URxvt.boldFont:          xft:Inconsolata\ for\ Powerline:bold:size=16
-URxvt.italicFont:        xft:Inconsolata\ for\ Powerline:italic:size=16
-URxvt.boldItalicFont:    xft:Inconsolata\ for\ Powerline:bold:italic:size=16
-URxvt.letterSpace: -1
+! URxvt*font:              xft:Monaco\ for\ Powerline:antialias=true:hinting=true:size=14
+! URxvt*font:              xft:Hack:antialias=true:hinting=true:size=14
+! URxvt.font:              xft:Inconsolata\ for\ Powerline:regular:size=16
 
+!URxvt.font:              xft:Monaco\ for\ Powerline:regular:antialias=true:hinting=true:size=16
+!URxvt.imFont:            xft:Monaco\ for\ Powerline:regular:antialias=true:hinting=true:size=16
+!URxvt.boldFont:          xft:Monaco\ for\ Powerline:bold:antialias=true:hinting=true:size=16
+!URxvt.italicFont:        xft:Monaco\ for\ Powerline:italic:antialias=true:hinting=true:size=16
+!URxvt.boldItalicFont:    xft:Monaco\ for\ Powerline:bold:italic:antialias=true:hinting=true:size=16
+
+!URxvt.font:              xft:Inconsolata\ for\ Powerline:regular:size=16
+!URxvt.imFont:            xft:Inconsolata\ for\ Powerline:regular:size=16
+!URxvt.boldFont:          xft:Inconsolata\ for\ Powerline:bold:size=16
+!URxvt.italicFont:        xft:Inconsolata\ for\ Powerline:italic:size=16
+!URxvt.boldItalicFont:    xft:Inconsolata\ for\ Powerline:bold:italic:size=16
+
+!URxvt.font:              xft:Source\ Code\ Pro\ for\ Powerline:regular:size=16
+!URxvt.imFont:            xft:Source\ Code\ Pro\ for\ Powerline:regular:size=16
+!URxvt.boldFont:          xft:Source\ Code\ Pro\ for\ Powerline:bold:size=16
+!URxvt.italicFont:        xft:Source\ Code\ Pro\ for\ Powerline:italic:size=16
+!URxvt.boldItalicFont:    xft:Source\ Code\ Pro\ for\ Powerline:bold:italic:size=16
+
+!URxvt.letterSpace: -1
+URxvt.letterSpace: 0
 urxvt*foreground: #dddddd
 ! urxvt*background: #444444
 urxvt*background: #353535
