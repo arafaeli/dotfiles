@@ -5,6 +5,16 @@ THIS_DIR=$(dirname $THIS_FILE)
 BOOKMARKS_FILE=$THIS_DIR/bookmarks
 
 alias dual_monitor='xrandr --auto --output eDP1 --right-of DP1-2'
+alias single_monitor='xrandr --output DP1-2 --off'
+
+cycle_monitor() {
+  while true; do
+    single_monitor
+    sleep 2
+    dual_monitor
+    sleep 2
+  done
+}
 
 pip-install() {
   package=$1
