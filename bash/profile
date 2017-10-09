@@ -4,16 +4,30 @@ THIS_FILE=${BASH_SOURCE[0]}
 THIS_DIR=$(dirname $THIS_FILE)
 BOOKMARKS_FILE=$THIS_DIR/bookmarks
 
+alias dual2_monitor='xrandr --auto --output DP1-3 --right-of DP1-2'
 alias dual_monitor='xrandr --auto --output eDP1 --right-of DP1-2'
 alias single_monitor='xrandr --output DP1-2 --off'
 
 cycle_monitor() {
   while true; do
+    echo "Turning monitor off.."
     single_monitor
-    sleep 2
+    read -p "Press any key to turn on" -N 1
+    echo "Turning monitor on.."
     dual_monitor
-    sleep 2
+
+    read -p "Okay now? (y/N)" choice
+    if [[ $choice =~ (y|Y) ]]; then
+      echo "GREAT SUCCESS"
+      background-image
+      return 0
+    fi
+    echo
   done
+}
+
+background-image() {
+  feh --bg-scale ~/Pictures/pokemans.jpg --bg-scale ~/Pictures/pokemans.jpg
 }
 
 pip-install() {

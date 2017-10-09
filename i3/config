@@ -178,7 +178,8 @@ bindsym XF86AudioMute exec "pactl set-sink-mute 0 toggle"
 
 # Office display setup
 #exec --no-startup-id xrandr --auto --output eDP1 --right-of HDMI1
-exec --no-startup-id xrandr --auto --output eDP1 --right-of DP1-2
+#exec --no-startup-id xrandr --auto --output eDP1 --right-of DP1-2
+exec --no-startup-id ~/.screenlayout/office.sh
 
 
 # Background image
