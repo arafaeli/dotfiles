@@ -61,3 +61,6 @@
 [submodule "vim/bundle/pudb.vim"]
 	path = vim/bundle/pudb.vim
 	url = git@github.com:SkyLeach/pudb.vim.git
+[submodule "vim/bundle/vim-pyenv"]
+	path = vim/bundle/vim-pyenv
+	url = git@github.com:lambdalisue/vim-pyenv.git
