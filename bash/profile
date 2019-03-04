@@ -7,6 +7,8 @@ BOOKMARKS_FILE=$THIS_DIR/bookmarks
 alias dual2_monitor='xrandr --auto --output DP1-3 --right-of DP1-2'
 alias dual_monitor='xrandr --auto --output eDP1 --right-of DP1-2'
 alias single_monitor='xrandr --output DP1-2 --off'
+alias c='xclip -selection clipboard -i'
+alias v='xclip -selection clipboard -o'
 
 cycle_monitor() {
   while true; do
@@ -115,5 +117,11 @@ scratch() {
   fi
 
   vim ~/.scratch/$filename
+}
+
+ec2-ssh() {
+  pem=$HOME/.ssh/Poutine.pem
+  ip=$1
+
 }
 

@@ -1,15 +1,6 @@
 p $HOME/projects
-leela $HOME/projects/leela2
-bender $HOME/projects/bender
 dotfiles $HOME/projects/dotfiles
-shit $HOME/projects/shit
 
-fry /home/asaf/projects/fry
-scruffy /home/asaf/projects/scruffy
-ops /home/asaf/projects/ops
-scripts /home/asaf/projects/scripts
-nlp /home/asaf/projects/nlp
-nibbler /home/asaf/projects/nibbler
-shino /home/asaf/projects/shino
-go /home/asaf/go
-scheduler /home/asaf/projects/scheduler
+backend /home/asaf/projects/theator-backend
+enrich /home/asaf/projects/theator-enrich
+app /home/asaf/projects/theator-app

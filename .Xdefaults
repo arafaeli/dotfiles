@@ -14,9 +14,9 @@ URxvt*scrollTtyKeypress: true
 urxvt*scrollBar: false
 
 ! font
-!*font:              xft:Monaco for Powerline:antialias=true:hinting=true:size=12
+*font:              xft:Monaco for Powerline:antialias=true:hinting=true:size=12
 !*font:              xft:Source\ Code\ Pro\ for\ Powerline:regular:size=16
-*font:              xft:Source\ Code\ Pro\ for\ Powerline:regular:size=12
+!*font:              xft:Source\ Code\ Pro\ for\ Powerline:regular:size=12
 
 ! URxvt*font:              xft:Monaco\ for\ Powerline:antialias=true:hinting=true:size=14
 ! URxvt*font:              xft:Hack:antialias=true:hinting=true:size=14

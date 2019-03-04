@@ -64,3 +64,6 @@
 [submodule "vim/bundle/vim-pyenv"]
 	path = vim/bundle/vim-pyenv
 	url = git@github.com:lambdalisue/vim-pyenv.git
+[submodule "vim/bundle/vim-jsx"]
+	path = vim/bundle/vim-jsx
+	url = git@github.com:mxw/vim-jsx.git
