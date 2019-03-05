@@ -293,7 +293,13 @@ exec --no-startup-id i3-msg 'workspace 1; exec gvim; move workspace to left'
 
 ##### Hotkeys #####
 # CMUS
-bindsym XF86AudioPlay exec cmus-remote -u
-bindsym XF86AudioPause exec cmus-remote -u
-bindsym XF86AudioNext exec cmus-remote -n
-bindsym XF86AudioPrev exec cmus-remote -r
+# bindsym XF86AudioPlay exec cmus-remote -u
+# bindsym XF86AudioPause exec cmus-remote -u
+# bindsym XF86AudioNext exec cmus-remote -n
+# bindsym XF86AudioPrev exec cmus-remote -r
+
+# SPOTIFY
+bindsym XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+bindsym XF86AudioPause exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+bindsym XF86AudioNext exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+bindsym XF86AudioPrev exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
