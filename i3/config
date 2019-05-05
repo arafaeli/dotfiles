@@ -164,12 +164,26 @@ bindsym $mod+r mode "resize"
 #   }
 # }
 
+# panel
 bar {
-        status_command i3status
+  colors {
+    background #2f343f
+    statusline #2f343f
+    separator #4b5262
+
+    # colour of border, background, and text
+    focused_workspace	#2f343f	#bf616a	#d8dee8
+    active_workspace	#2f343f	#2f343f	#d8dee8
+    inactive_workspace	#2f343f	#2f343f	#d8dee8
+    urgent_workspace	#2f343f	#ebcb8b	#2f343f
+  }
+  status_command i3status
+  font pango: Monaco for Powerline 10
 }
 
 # Change language
-exec --no-startup-id setxkbmap -layout us,il -option 'grp:alt_shift_toggle'
+exec --no-startup-id setxkbmap -option grp:switch,grp:alt_shift_toggle,grp_led:scroll us,il
+# exec --no-startup-id setxkbmap -layout us,il -option 'grp:alt_shift_toggle'
 
 # Move the current workspace to the next output
 # (toggle)
@@ -239,12 +253,12 @@ bindsym XF86AudioMute        exec $volumepath/volume -mn -t $statuscmd -u $statu
 #exec --no-startup-id feh --bg-scale ~/Pictures/Poly-Lakeside.jpg --bg-scale ~/Pictures/Poly-Lakeside.jpg
 #exec --no-startup-id feh --bg-scale ~/Pictures/B31Uwkm.png --bg-scale ~/Pictures/B31Uwkm.png
 # exec --no-startup-id feh --bg-scale ~/Pictures/pokemans.jpg --bg-scale ~/Pictures/pokemans.jpg
-exec --no-startup-id feh --bg-scale ~/Pictures/pokemans.jpg --bg-scale ~/Pictures/wallpapers/rick.png
+exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/.current
 
 # Compton
 # exec --no-startup-id compton -cCGb --backend glx --vsync opengl --opacity-rule '80:!focused'
 # exec --no-startup-id compton -cCGb --backend glx --vsync opengl --opacity-rule '80:!focused'
-exec --no-startup-id compton -cCGb --backend glx --vsync opengl --opacity-rule '80:!focused' --config ~/.compton.conf
+exec --no-startup-id compton -cCGb --backend glx --vsync opengl --config ~/.config/compton.conf
 
 # Pasystray
 exec --no-startup-id pasystray
@@ -260,17 +274,32 @@ set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
 
 # window colors
-#                       border              background         text                 indicator
-client.focused          #ffffff           $bg-color          $text-color          #0ff00
-client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
-client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
+# colour of border, background, text, indicator, and child_border
+client.focused			#bf616a #2f343f #d8dee8 #bf616a #d8dee8
+client.focused_inactive	#2f343f #2f343f #d8dee8 #2f343f #2f343f
+client.unfocused		#2f343f #2f343f #d8dee8 #2f343f #2f343f
+client.urgent			#2f343f #2f343f #d8dee8 #2f343f #2f343f
+client.placeholder		#2f343f #2f343f #d8dee8 #2f343f #2f343f
+client.background		#2f343f
+
+# window shit
+## window rules, you can find the window class using xprop
+for_window [class=".*"] border pixel 4
+# assign [class=URxvt] 1
+# assign [class=Firefox|Transmission-gtk] 2
+# assign [class=Thunar|File-roller] 3
+# assign [class=Geany|Evince|Gucharmap|Soffice|libreoffice*] 4
+# assign [class=Audacity|Vlc|mpv|Ghb|Xfburn|Gimp*|Inkscape] 5
+# assign [class=Lxappearance|System-config-printer.py|Lxtask|GParted|Pavucontrol|Exo-helper*|Lxrandr|Arandr] 6
+# for_window [class=Viewnior|feh|Audacious|File-roller|Lxappearance|Lxtask|Pavucontrol] floating enable
+# for_window [class=URxvt|Firefox|Geany|Evince|Soffice|libreoffice*|mpv|Ghb|Xfburn|Gimp*|Inkscape|Vlc|Lxappearance|Audacity] focus
+# for_window [class=Xfburn|GParted|System-config-printer.py|Lxtask|Pavucontrol|Exo-helper*|Lxrandr|Arandr] focus
 
 # DMenu alternative
 bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 50 -padding 100 -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
 
 # Screenshot
-bindsym Print exec shutter -s -e -o '~/Pictures/shutter/%y-%m-%d_$NNN.png'
+bindsym Print exec shutter -s -e -o '~/Pictures/screenshots/%y-%m-%d_$NNN.png'
 
 # Lock
 bindsym $mod+Shift+x exec i3lock --color 475263
@@ -282,14 +311,14 @@ bindsym $mod+Shift+x exec i3lock --color 475263
 
 ##### SESSION ######
 # Chrome
-exec --no-startup-id i3-msg 'workspace 10; exec google-chrome --profile-directory="Profile 1"; move workspace to right'
-exec --no-startup-id i3-msg 'workspace 9; exec google-chrome --profile-directory="Default"; move workspace to right'
+# exec --no-startup-id i3-msg 'workspace 10; exec google-chrome --profile-directory="Profile 1"; move workspace to right'
+# exec --no-startup-id i3-msg 'workspace 9; exec google-chrome --profile-directory="Default"; move workspace to right'
 
 # Slack
-exec --no-startup-id i3-msg 'workspace 8; exec slack; move workspace to right'
+# exec --no-startup-id i3-msg 'workspace 8; exec slack; move workspace to right'
 
 # GVim
-exec --no-startup-id i3-msg 'workspace 1; exec gvim; move workspace to left'
+# exec --no-startup-id i3-msg 'workspace 1; exec gvim; move workspace to left'
 
 ##### Hotkeys #####
 # CMUS

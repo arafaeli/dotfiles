@@ -5,12 +5,20 @@ export EDITOR="$VISUAL"
 THIS_FILE=${BASH_SOURCE[0]}
 THIS_DIR=$(dirname $THIS_FILE)
 BOOKMARKS_FILE=$THIS_DIR/bookmarks
+SCRIPTS_FILE=$THIS_DIR/scripts
 
 alias dual2_monitor='xrandr --auto --output DP1-3 --right-of DP1-2'
 alias dual_monitor='xrandr --auto --output eDP1 --right-of DP1-2'
 alias single_monitor='xrandr --output DP1-2 --off'
 alias c='xclip -selection clipboard -i'
 alias v='xclip -selection clipboard -o'
+alias git-branch="git rev-parse --abbrev-ref HEAD"
+
+
+source $SCRIPTS_FILE
+
+# Set english and hebrew keyboard
+setxkbmap -option grp:switch,grp:alt_shift_toggle,grp_led:scroll us,il
 
 cycle_monitor() {
   while true; do
@@ -118,6 +126,7 @@ scratch() {
     filename=$1
   fi
 
+  mkdir -p ~/.scratch
   vim ~/.scratch/$filename
 }
 
@@ -163,5 +172,18 @@ ec2-rsync-send() {
 
 ec2-rsync-recv() {
   rsync -Pav -e "ssh -i $HOME/.ssh/Poutine.pem" ubuntu@$(ec2-ip $1):$2 $3
+}
+
+
+# git stuff
+
+git-fetch() {
+  if [ -z "$1" ]; then
+    export branch=develop
+  else
+    export branch=$1
+  fi
+
+  git fetch origin $branch:$branch
 }
 
