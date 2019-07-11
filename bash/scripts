@@ -1,0 +1,14 @@
+#!/bin/bash
+
+es-copy-index() {
+from=$1
+to=$2
+
+for t in analyzer mapping data
+do
+  elasticdump \
+    --input=$from \
+    --output=$to \
+    --type=$t
+done
+}
