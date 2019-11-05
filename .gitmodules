@@ -79,3 +79,6 @@
 [submodule "vim/bundle/vim-autopep8"]
 	path = vim/bundle/vim-autopep8
 	url = git@github.com:tell-k/vim-autopep8.git
+[submodule "vim/bundle/slimv"]
+	path = vim/bundle/slimv
+	url = git@github.com:kovisoft/slimv.git
